@@ -20,10 +20,14 @@ public class LZWEncoder {
 		String buffer = Character.toString((char)inputCharNum);
 		
 		while(inputCharNum != -1) {
-			
-			
-			inputCharNum = reader.read();
 			buffer += Character.toString((char)inputCharNum);
+			if (!(codemap.containsKey(buffer))) {
+				if (lastindex < 127) { //codemap has max 128 elts
+					codemap.put(buffer, lastindex+1)
+					lastindex++;
+				}
+			}
+			inputCharNum = reader.read();
 		}
 	}
 }
