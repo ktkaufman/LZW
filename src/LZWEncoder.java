@@ -31,7 +31,7 @@ public class LZWEncoder {
 					codemap.put(buffer, lastindex+1)
 					lastindex++;
 				}
-				output += (char)(codemap.get(buffer.substring(0,buffer.length()-1)));
+				output += (char)((codemap.get(buffer.substring(0,buffer.length()-1))).intValue());
 				buffer = buffer.substring(buffer.length()-1,buffer.length());
 			}
 			inputCharNum = reader.read();
