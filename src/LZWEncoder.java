@@ -17,11 +17,13 @@ public class LZWEncoder {
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		int inputCharNum = reader.read();
 		String output = "";
+		String buffer = Character.toString((char)inputCharNum);
 		
 		while(inputCharNum != -1) {
 			
 			
 			inputCharNum = reader.read();
+			buffer += Character.toString((char)inputCharNum);
 		}
 	}
 }
