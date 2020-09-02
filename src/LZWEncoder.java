@@ -16,10 +16,12 @@ public class LZWEncoder {
 	public void encode(String inputFile, String outputFile) throws IOException{
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		int inputCharNum = reader.read();
+		String output = "";
+		
 		while(inputCharNum != -1) {
 			
 			
-			inputcharNum = reader.read();
+			inputCharNum = reader.read();
 		}
 	}
 }
