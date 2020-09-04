@@ -28,7 +28,7 @@ public class LZWEncoder {
 			buffer += Character.toString((char)inputCharNum);
 			if (!(codemap.containsKey(buffer))) {
 				if (lastindex < 127) { //codemap has max 128 elts
-					codemap.put(buffer, lastindex+1)
+					codemap.put(buffer, lastindex+1);
 					lastindex++;
 				}
 				output += (char)((codemap.get(buffer.substring(0,buffer.length()-1))).intValue());
