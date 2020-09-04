@@ -15,10 +15,11 @@ public class LZWEncoder {
 		lastindex = 25;
 	}
 	
-	
+	//encode reads an input file, and encodes it using LZW encoding and outputs it to an output file
 	public void encode(String inputFile, String outputFile) throws IOException{
 		//the final output to the file
 		String output = "";
+		
 		//a buffer storing the chars that we're trying to determine the equivalent number to
 		String buffer = "";
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
