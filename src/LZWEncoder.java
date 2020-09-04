@@ -15,10 +15,11 @@ public class LZWEncoder {
 		lastindex = 25;
 	}
 	
-	
+	//encode reads an input file, and encodes it using LZW encoding and outputs it to an output file
 	public void encode(String inputFile, String outputFile) throws IOException{
 		//the final output to the file
 		String output = "";
+		
 		//a buffer storing the chars that we're trying to determine the equivalent number to
 		String buffer = "";
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
@@ -28,7 +29,7 @@ public class LZWEncoder {
 			buffer += Character.toString((char)inputCharNum);
 			if (!(codemap.containsKey(buffer))) {
 				if (lastindex < 127) { //codemap has max 128 elts
-					codemap.put(buffer, lastindex+1)
+					codemap.put(buffer, lastindex+1);
 					lastindex++;
 				}
 				output += (char)((codemap.get(buffer.substring(0,buffer.length()-1))).intValue());
