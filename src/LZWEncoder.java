@@ -3,16 +3,17 @@ import java.io.*;
 
 public class LZWEncoder {
 	//codemap is a hashmap that stores the LZW table
-	private HashMap<String, Integer> codemap = new HashMap<String, Integer>();
+	private HashMap<String, Integer> codemap;
 	//lastindex stores the last number that we added to the table
 	private int lastindex;
 	
 	public LZWEncoder() {
 		//add a-z as 0-25 in the table
-		for (int i = 0; i<26; i++) {
-			codemap.put(Character.toString((char)(i+97)), i); //what if not all lowercase letters?
+		codemap =  new HashMap<String, Integer>(128);
+		for (int i = 0; i<128; i++) {
+			codemap.put(Character.toString((char)(i)), i); //what if not all lowercase letters?
 		}
-		lastindex = 25;
+		lastindex = 127;
 	}
 	
 	//encode reads an input file, and encodes it using LZW encoding and outputs it to an output file
@@ -28,7 +29,7 @@ public class LZWEncoder {
 		while(inputCharNum != -1) {
 			buffer += Character.toString((char)inputCharNum);
 			if (!(codemap.containsKey(buffer))) {
-				if (lastindex < 127) { //codemap has max 128 elts
+				if (lastindex < 255) { //codemap has max 128 elts
 					codemap.put(buffer, lastindex+1);
 					lastindex++;
 				}
