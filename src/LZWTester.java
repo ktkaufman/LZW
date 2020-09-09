@@ -17,7 +17,6 @@ public class LZWTester {
 		BufferedReader reader = new BufferedReader(new FileReader(infile));
 		int inputCharNum = reader.read();
 		while (inputCharNum != -1) {
-			System.out.println((int)inputCharNum);
 			inputCharNum = reader.read();
 		}
 	}
