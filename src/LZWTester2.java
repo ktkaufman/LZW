@@ -1,5 +1,5 @@
 import java.io.*;
-public class LZWTester {
+public class LZWTester2 {
 
 	public static void main (String [] args) throws IOException
 	{
