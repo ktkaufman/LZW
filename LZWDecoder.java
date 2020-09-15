@@ -12,8 +12,15 @@ public class LZWDecoder {
 		lastIndex = 127;
 	}
 
-	public void decode(String imputFile, String outputFile) {
-
+	public void decode(String inputFile, String outputFile) throws IOException {
+		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
+		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		String lastCode = "" + (char)reader.read();
+		outputWriter.append(lastCode);
+		while (reader.ready())
+		{
+			
+		}
 	}
 
 }
