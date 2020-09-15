@@ -40,22 +40,15 @@ public class LZWEncoder {
 				}
 				
 				//get integer value corresponding to substring of buffer without last character from codeMap, encoded as a char
-
 				output.append((char)((codeMap.get(buffer.substring(0,buffer.length()-1))).intValue()));
-
-				output += ((codeMap.get(buffer.substring(0,buffer.length()-1))).intValue());
-
 				//set buffer to its last character
 				buffer = buffer.substring(buffer.length()-1,buffer.length());
 			}
 			inputCharNum = reader.read();
 		}
 		
-
+		//last few elements of the input file will not get read by the while loop, so we add them encoded into the output
 		output.append((char)(codeMap.get(buffer).intValue()));
-
-		output += (codeMap.get(buffer).intValue());
-
 		
 		//writing the output to the file
 		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
