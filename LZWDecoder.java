@@ -1,11 +1,19 @@
 import java.io.*;
 import java.util.*;
-public class LZWDecoder 
-{
-	public LZWDecoder()
-	{
-		
+public class LZWDecoder {
+	private HashMap<String, Integer> codeMap;
+	private int lastIndex;
+	public LZWDecoder() {
+		//adds first 128 ascii characters to table
+		codeMap =  new HashMap<String, Integer>(128);
+		for (int i = 0; i<128; i++) {
+			codeMap.put(Character.toString((char)(i)), i); //value of ith ascii as a key is i
+		}
+		lastIndex = 127;
 	}
-	public void decode(String imputFile, String outputFile)
-}
 
+	public void decode(String imputFile, String outputFile) {
+
+	}
+
+}
