@@ -19,8 +19,8 @@ public class LZWEncoder {
 	//encode reads an input file, and encodes it using LZW encoding and outputs it to an output file
 	public void encode(String inputFile, String outputFile) throws IOException{
 		//the final output to the file
-		String output = "";
-		
+		StringBuilder output = new StringBuilder("");
+		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
 		//input string we're about to encode
 		String buffer = "";
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
@@ -41,6 +41,7 @@ public class LZWEncoder {
 				
 				//get integer value corresponding to substring of buffer without last character from codeMap, encoded as a char
 				output += (char)((codeMap.get(buffer.substring(0,buffer.length()-1))).intValue());
+				outputWriter.write((char)((codeMap.get(buffer.substring(0,buffer.length()-1))).intValue()));
 				//set buffer to its last character
 				buffer = buffer.substring(buffer.length()-1,buffer.length());
 			}
@@ -49,10 +50,11 @@ public class LZWEncoder {
 		
 		//last few elements of the input file will not get read by the while loop, so we add them encoded into the output
 		output += (char)(codeMap.get(buffer).intValue());
+		outputWriter.write((char)(codeMap.get(buffer).intValue()));
 		
 		//writing the output to the file
-		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
-		outputWriter.write(output);
+		
+		//outputWriter.write(output.toString());
 		reader.close();
 		outputWriter.close();
 	}
