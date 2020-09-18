@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
-public class LZWDecoInteger, String> codeMap;
+private HashMap<Integer, String> codeMap;
+public class LZWDecoInteger, 
 	private int lastIndex;
 	public LZWDecoder() {
 		//adds first 128 ascii characters to table
@@ -15,10 +16,12 @@ public class LZWDecoInteger, String> codeMap;
 		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		String lastCode = "" + (char)reader.read();
-		outputWriter.append(lastCode);
 		while (reader.ready())
 		{
-			if(codeMap.contains(lastCode));{
+			if(codeMap.containsKey(lastCode));{
+				outputWriter.write(codeMap.get(lastCode));
+			}
+			else{
 				
 			}
 		}
