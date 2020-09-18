@@ -22,13 +22,14 @@ public class LZWDecoder
 		String current="";
 		outputWriter.write(lastCode);
 		while (reader.ready())
-			current=reader.read()
+			current=""+(char)reader.read();
 		{
-			if(codeMap.containsKey(lastCode));{
+			if(codeMap.containsKey(lastCode)){
 				temp1=lastCode;
 				temp1+=temp2;
 			}
-			else{
+			else
+			{
 				temp1=current;
 			}
 			outputWriter.write(temp1);
