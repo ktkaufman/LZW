@@ -29,6 +29,8 @@ public class LZWDecoder
 				
 			}
 			outputWriter.write(temp1);
+			codeMap.put(lastIndex+1, temp2 = ""+temp1.charAt(0));
+			lastIndex++;
 			
 		}
 	}
