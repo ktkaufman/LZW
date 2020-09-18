@@ -39,6 +39,8 @@ public class LZWDecoder
 			
 			
 		}
+		outputWriter.close();
+		reader.close();
 		System.out.println(codeMap);
 	}
 
