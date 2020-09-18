@@ -17,7 +17,7 @@ public class LZWDecoder
 		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		String lastCode = "" + (char)reader.read();
-		outputWriter.append(lastCode);
+		outputWriter.write(lastCode);
 		while (reader.ready())
 		{
 			if(codeMap.contains(lastCode));{
