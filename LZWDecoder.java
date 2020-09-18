@@ -19,19 +19,23 @@ public class LZWDecoder
 		String temp1 = "";
 		String temp2 = "";
 		String lastCode = "" + (char)reader.read();
+		String current="";
 		outputWriter.write(lastCode);
 		while (reader.ready())
+			current=reader.read()
 		{
 			if(codeMap.containsKey(lastCode));{
-				outputWriter.write(codeMap.get(lastCode));
+				temp1=lastCode;
+				temp1+=temp2;
 			}
 			else{
-				
+				temp1=current;
 			}
 			outputWriter.write(temp1);
 			codeMap.put(lastIndex+1, temp2 = "" + temp1.charAt(0));
 			lastIndex++;
 			lastCode = current;
+			
 			
 		}
 	}
