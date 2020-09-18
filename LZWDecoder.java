@@ -1,13 +1,8 @@
 import java.io.*;
 import java.util.*;
-
-private HashMap<Integer, String> codeMap;
-public class LZWDecoInteger, 
-
 public class LZWDecoder
 {
-	HashMap<Integer, String> codeMap;
-
+	private HashMap<Integer, String> codeMap;
 	private int lastIndex;
 	public LZWDecoder() {
 		//adds first 128 ascii characters to table
