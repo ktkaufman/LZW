@@ -24,13 +24,13 @@ public class LZWDecoder
 		while (reader.ready())	
 		{
 			current=""+codeMap.get(reader.read());
-			if(!codeMap.containsKey(lastCode)){//fixes exception where there are duplicate chars
+			if(!codeMap.containsValue(lastCode)){//fixes exception where there are duplicate chars
 				temp1=codeMap.get(lastCode);
 				temp1+=temp2;
 			}
 			else
 			{
-				temp1=codeMap.get(current);
+				temp1=current;
 			}
 			outputWriter.write(temp1);
 			codeMap.put(lastIndex+1, temp2 = "" + temp1.charAt(0));
