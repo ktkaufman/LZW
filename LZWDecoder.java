@@ -21,9 +21,9 @@ public class LZWDecoder
 		String lastCode = "" + (char)reader.read();
 		String current="";
 		outputWriter.write(lastCode);
-		while (reader.ready())
-			current=""+(char)reader.read();
+		while (reader.ready())	
 		{
+			current=""+(char)reader.read();
 			if(!codeMap.containsKey(lastCode)){//fixes exception where there are duplicate chars
 				temp1=lastCode;
 				temp1+=temp2;
