@@ -23,26 +23,37 @@ public class LZWDecoder
 		outputWriter.write(lastCode);
 		while (reader.ready())	
 		{
-			current=""+codeMap.get(reader.read());
-			if(!codeMap.containsValue(lastCode)){//fixes exception where there are duplicate chars
-				temp1= lastCode;
-				temp1+=temp2;
+			int index = reader.read();
+			current= "" + codeMap.get(index);
+			if (index > lastIndex)
+			{
+				current = lastCode + lastCode.charAt(0);
+				outputWriter.write(current);
+				lastIndex++;
+				codeMap.put(lastIndex, current);
+				lastCode = current;
 			}
 			else
 			{
-				temp1=current;
+			if(!codeMap.containsValue(lastCode)){//fixes exception where there are duplicate chars
+				temp1= lastCode;
+				temp1+=temp2;
+				
+			}
+			else
+			{	
+					temp1=current;
 			}
 			outputWriter.write(temp1);
-			codeMap.put(lastIndex+1, lastCode+temp1);
-			temp2 = "" + temp1.charAt(0);
 			lastIndex++;
+			codeMap.put(lastIndex, lastCode+temp1);
+			temp2 = "" + temp1.charAt(0);
 			lastCode = current;
-			
+			}
 			
 		}
 		outputWriter.close();
 		reader.close();
-		System.out.println(codeMap);
 	}
 
 }
