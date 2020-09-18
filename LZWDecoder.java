@@ -18,9 +18,9 @@ public class LZWDecoder
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		String temp1 = "";
 		String temp2 = "";
-		String lastCode = "" + (char)reader.read();
+		String lastCode = "" + codeMap.get((char)reader.read());
 		String current="";
-		outputWriter.write(codeMap.get(lastCode));
+		outputWriter.write(lastCode);
 		while (reader.ready())	
 		{
 			current=""+(char)reader.read();
