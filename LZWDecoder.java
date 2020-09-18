@@ -20,17 +20,17 @@ public class LZWDecoder
 		String temp2 = "";
 		String lastCode = "" + (char)reader.read();
 		String current="";
-		outputWriter.write(lastCode);
+		outputWriter.write(codeMap.get(lastCode));
 		while (reader.ready())	
 		{
 			current=""+(char)reader.read();
 			if(!codeMap.containsKey(lastCode)){//fixes exception where there are duplicate chars
-				temp1=lastCode;
+				temp1=codemap.get(lastCode);
 				temp1+=temp2;
 			}
 			else
 			{
-				temp1=current;
+				temp1=codeMap.get(current);
 			}
 			outputWriter.write(temp1);
 			codeMap.put(lastIndex+1, temp2 = "" + temp1.charAt(0));
