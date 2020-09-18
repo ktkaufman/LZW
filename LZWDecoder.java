@@ -39,6 +39,7 @@ public class LZWDecoder
 			
 			
 		}
+		System.out.println(codeMap);
 	}
 
 }
