@@ -25,12 +25,14 @@ public class LZWDecoder
 			current=reader.read()
 		{
 			if(codeMap.containsKey(lastCode));{
-				temp1
+				temp1=lastCode;
+				temp1+=temp2;
 			}
 			else{
-				
+				temp1=current;
 			}
 			outputWriter.write(temp1);
+			
 			
 		}
 	}
