@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class LZWDecoder {
-	private HashMap<String, Integer> codeMap;
+public class LZWDecoInteger, String> codeMap;
 	private int lastIndex;
 	public LZWDecoder() {
 		//adds first 128 ascii characters to table
@@ -19,7 +18,9 @@ public class LZWDecoder {
 		outputWriter.append(lastCode);
 		while (reader.ready())
 		{
-			
+			if(codeMap.contains(lastCode));{
+				
+			}
 		}
 	}
 
