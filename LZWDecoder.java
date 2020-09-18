@@ -16,11 +16,10 @@ public class LZWDecoder
 	public void decode(String inputFile, String outputFile) throws IOException {
 		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		String temp1 = "";
+		String temp2 = "";
 		String lastCode = "" + (char)reader.read();
-
-
 		outputWriter.write(lastCode);
-
 		while (reader.ready())
 		{
 			if(codeMap.containsKey(lastCode));{
@@ -29,6 +28,8 @@ public class LZWDecoder
 			else{
 				
 			}
+			outputWriter.write(temp1);
+			
 		}
 	}
 
