@@ -24,7 +24,7 @@ public class LZWDecoder
 		while (reader.ready())
 			current=""+(char)reader.read();
 		{
-			if(codeMap.containsKey(lastCode)){
+			if(!codeMap.containsKey(lastCode)){//
 				temp1=lastCode;
 				temp1+=temp2;
 			}
