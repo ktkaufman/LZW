@@ -18,12 +18,12 @@ public class LZWDecoder
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		String temp1 = "";
 		String temp2 = "";
-		String lastCode = "" + codeMap.get((char)reader.read());
+		String lastCode = "" + codeMap.get(reader.read());
 		String current="";
 		outputWriter.write(lastCode);
 		while (reader.ready())	
 		{
-			current=""+(char)reader.read();
+			current=""+codeMap.get(reader.read());
 			if(!codeMap.containsKey(lastCode)){//fixes exception where there are duplicate chars
 				temp1=codeMap.get(lastCode);
 				temp1+=temp2;
