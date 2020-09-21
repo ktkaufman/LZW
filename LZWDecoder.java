@@ -25,7 +25,7 @@ public class LZWDecoder
 		{
 			int index = reader.read();
 			current= "" + codeMap.get(index);
-			if (index > lastIndex)
+			if (index > lastIndex) //fixes exception where there are duplicate letters
 			{
 				current = lastCode + lastCode.charAt(0);
 				outputWriter.write(current);
@@ -34,16 +34,8 @@ public class LZWDecoder
 				lastCode = current;
 			}
 			else
-			{
-			if(!codeMap.containsValue(lastCode)){//fixes exception where there are duplicate chars
-				temp1= lastCode;
-				temp1+=temp2;
-				
-			}
-			else
 			{	
 					temp1=current;
-			}
 			outputWriter.write(temp1);
 			lastIndex++;
 			codeMap.put(lastIndex, lastCode+temp1);
