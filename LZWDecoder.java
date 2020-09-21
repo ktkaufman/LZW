@@ -14,7 +14,7 @@ public class LZWDecoder {
 		lastIndex = 127;
 	}
 
-	public void decode(String inputFile, String outputFile) throws IOException {
+	public void decode(String inputFile, String outputFile) throws IOException { 
 		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		String temp2 = "";
@@ -35,7 +35,6 @@ public class LZWDecoder {
 				outputWriter.write(current);
 				lastIndex++;
 				codeMap.put(lastIndex, lastCode + current.charAt(0));
-				// System.out.println(lastCode+"+"+temp1+"="+lastCode+temp1);
 				temp2 = "" + current.charAt(0);
 				lastCode = current;
 			}
