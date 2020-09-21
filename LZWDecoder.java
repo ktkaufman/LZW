@@ -12,12 +12,12 @@ public class LZWDecoder {
 			codeMap.put(i, "" + (char) (i)); // value of ith ascii as a key is i
 		}
 		lastIndex = 127;
-		
 	}
+
 
 	//Reads input file; while reading gets each char index and decodes it by seeing where it is in the table and then writes the corresponding value
 	//Also makes the decoding table
-	public void decode(String inputFile, String outputFile) throws IOException {
+	public void decode(String inputFile, String outputFile) throws IOException { 
 		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		String temp2 = "";
@@ -38,10 +38,8 @@ public class LZWDecoder {
 				outputWriter.write(current);
 				lastIndex++;
 				codeMap.put(lastIndex, lastCode + current.charAt(0));
-				// System.out.println(lastCode+"+"+temp1+"="+lastCode+temp1);
 				temp2 = "" + current.charAt(0);
 				lastCode = current;
-				
 			}
 		}
 
