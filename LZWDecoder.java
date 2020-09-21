@@ -21,7 +21,7 @@ public class LZWDecoder {
 		String temp2 = "";
 		String lastCode = "" + codeMap.get(reader.read());
 		String current = "";
-		outputWriter.write(lastCode);//EFFICIENCY: Added each code during each run rather than adding a huge string/stringbuffer at the very end
+		outputWriter.write(lastCode);
 		while (reader.ready()) {
 			int index = reader.read();
 			current = "" + codeMap.get(index);
@@ -35,7 +35,7 @@ public class LZWDecoder {
 			} else {
 				temp1 = current;
 
-				outputWriter.write(temp1);//EFFICIENCY: Added each code during each run rather than adding a huge string/stringbuffer at the very end
+				outputWriter.write(temp1);
 				lastIndex++;
 				codeMap.put(lastIndex, lastCode + temp1.charAt(0));
 				// System.out.println(lastCode+"+"+temp1+"="+lastCode+temp1);
