@@ -12,13 +12,11 @@ public class LZWDecoder {
 			codeMap.put(i, "" + (char) (i)); // value of ith ascii as a key is i
 		}
 		lastIndex = 127;
+		
 	}
 
-<<<<<<< HEAD
 	//Reads input file; while reading gets each char index and decodes it by seeing where it is in the table and then writes the corresponding value
 	//Also makes the decoding table
-=======
->>>>>>> parent of c2a1200... Update LZWDecoder.java
 	public void decode(String inputFile, String outputFile) throws IOException {
 		BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File(outputFile)));
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
@@ -43,6 +41,7 @@ public class LZWDecoder {
 				// System.out.println(lastCode+"+"+temp1+"="+lastCode+temp1);
 				temp2 = "" + current.charAt(0);
 				lastCode = current;
+				
 			}
 		}
 
